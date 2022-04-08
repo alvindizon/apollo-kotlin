@@ -40,12 +40,14 @@ class ApolloWebSocketClosedException(
 /**
  * The response was received but the response code was not 200
  *
+ * @param requestUrl: the original URL used for this response
  * @param statusCode: the HTTP status code
  * @param headers: the HTTP headers
  * @param body: the HTTP error body. By default, [body] is always null. You can opt-in [exposeHttpErrorBody] in [HttpNetworkTransport]
  * if you need it. If you're doing this, you **must** call [BufferedSource.close] on [body] to avoid sockets and other resources leaking.
  */
 class ApolloHttpException(
+    val requestUrl: String,
     val statusCode: Int,
     val headers: List<HttpHeader>,
     val body: BufferedSource?,

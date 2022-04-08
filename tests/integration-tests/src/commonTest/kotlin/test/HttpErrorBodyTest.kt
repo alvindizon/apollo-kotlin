@@ -35,6 +35,7 @@ class HttpErrorBodyTest {
       fail("An exception was expected")
     } catch (e: ApolloHttpException) {
       assertEquals("Ooops", e.body?.readUtf8())
+      assertEquals(mockServer.url(), e.requestUrl)
     }
 
     apolloClient.dispose()

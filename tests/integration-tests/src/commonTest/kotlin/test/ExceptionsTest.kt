@@ -52,6 +52,7 @@ class ExceptionsTest {
     val exception = result.exceptionOrNull()
     assertTrue(exception is ApolloHttpException)
     assertEquals(404, exception.statusCode)
+    assertEquals(mockServer.url(), exception.requestUrl)
   }
 
   @Test

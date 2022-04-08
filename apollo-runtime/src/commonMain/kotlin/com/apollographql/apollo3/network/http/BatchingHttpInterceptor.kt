@@ -183,6 +183,7 @@ class BatchingHttpInterceptor @JvmOverloads constructor(
           null
         }
         throw ApolloHttpException(
+            firstRequest.url,
             response.statusCode,
             response.headers,
             maybeBody,

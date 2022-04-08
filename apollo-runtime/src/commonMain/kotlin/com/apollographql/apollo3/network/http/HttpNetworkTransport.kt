@@ -71,6 +71,7 @@ private constructor(
           null
         }
         throw ApolloHttpException(
+            requestUrl = httpRequest.url,
             statusCode = httpResponse.statusCode,
             headers = httpResponse.headers,
             body = maybeBody,
